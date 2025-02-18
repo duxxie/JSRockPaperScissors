@@ -1,30 +1,26 @@
-function getHumanChoice(){
-    let choice = prompt("Insert Your Choice[Rock, Paper, Scissors]: ");
-    choice = choice.charAt(0).toUpperCase() + choice.slice(1).toLowerCase();
-    return choice;
-}
-
 function getComputerChoice() {
     const choices = ["Rock", "Paper", "Scissors"];
-    const randomIndex = Math.floor(Math.random() * choices.length);
-    return choices[randomIndex];
+    return choices[Math.floor(Math.random() * choices.length)];
 }
 
-function playRound(humanChoice, computerChoice) {
+function playRound(humanChoice, computerChoice){
+
+    if(humanChoice === "Reset"){
+        return "reset";
+    }
+
     if(humanChoice === computerChoice){
-        console.log("It's a tie");
         return "tie";
     }
 
     if(
         (humanChoice === "Rock" && computerChoice === "Scissors") ||
-        (humanChoice === "Paper" && computerChoice === "Rock") ||
-        (humanChoice === "Scissors" && computerChoice === "Paper")
-    ) {
-        console.log("You win this round");
+        (humanChoice === "Paper" && computerChoice === "Scissors") ||
+        (humanChoice === "Scissors" && computerChoice === "Scissors")
+    ){
         return "human";
-    } else {
-        console.log("Computer wins this round");
+    }
+    else{
         return "computer";
     }
 }
@@ -32,19 +28,31 @@ function playRound(humanChoice, computerChoice) {
 let humanScore = 0;
 let computerScore = 0;
 
-for(let i = 0; i < 5; i++){
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
-    let roundWinner = playRound(humanSelection, computerSelection);
+function playGame(humanChoice){
+
+    const computerChoice = getComputerChoice();
+    let roundWinner = playRound(humanChoice, computerChoice);
+
+    let resultText = `You chose: ${humanChoice} | Computer chose: ${computerChoice} -> `;
+
     if(roundWinner == "human"){
         humanScore++;
+        resultText+= "You win this round!"
     }
     else if(roundWinner == "computer"){
         computerScore++;
+        resultText+= "You lost this round."
     }
-    console.log("Human: " + humanScore + " Computer: " + computerScore);
+    else if(roundWinner == "reset"){
+        humanScore = 0;
+        computerScore = 0;
+        resultText = "Choose your move!";
+    }
+    else{
+        resultText+= "It's a tie";
+    }
 
+    document.getElementById("human").innerText = `Human Score: ${humanScore}`;
+    document.getElementById("computer").innerText = `Computer Score: ${computerScore}`;
+    document.getElementById("result").innerText = resultText;
 }
-
-
-console.log(humanScore > computerScore ? "You Win!" : "You Lose!");

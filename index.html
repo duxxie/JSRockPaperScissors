@@ -5,8 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
 <body>
+    <h1>Rock, Paper, Scissors</h1>
+
+    <button onclick="playGame('Rock')">Rock</button>
+    <button onclick="playGame('Paper')">Paper</button>
+    <button onclick="playGame('Scissors')">Scissors</button>
+    <button onclick="playGame('Reset')">Reset</button>
+    
+    <p id="result">Choose your move!</p>
+
+    <div id="score">
+        <p id="human">Human Score: 0</p>
+        <p id="computer">Computer Score: 0</p>
+    </div>
+    <script src="script.js"></script>
 </body>
+
 </html>
