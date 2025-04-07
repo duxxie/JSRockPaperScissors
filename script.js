@@ -1,5 +1,5 @@
 function getComputerChoice() {
-    const choices = ["Rock", "Paper", "Scissors"];
+    const choices = ["🪨", "📄", "✂️"];
     return choices[Math.floor(Math.random() * choices.length)];
 }
 
@@ -14,9 +14,9 @@ function playRound(humanChoice, computerChoice){
     }
 
     if(
-        (humanChoice === "Rock" && computerChoice === "Scissors") ||
-        (humanChoice === "Paper" && computerChoice === "Scissors") ||
-        (humanChoice === "Scissors" && computerChoice === "Scissors")
+        (humanChoice === "🪨" && computerChoice === "✂️") ||
+        (humanChoice === "📄" && computerChoice === "🪨") ||
+        (humanChoice === "✂️" && computerChoice === "📄")
     ){
         return "human";
     }

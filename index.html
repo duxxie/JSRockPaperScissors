@@ -7,13 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Rock, Paper, Scissors</h1>
+    <h1 id="Title">Rock, Paper, Scissors</h1>
 
-    <button onclick="playGame('Rock')">Rock</button>
-    <button onclick="playGame('Paper')">Paper</button>
-    <button onclick="playGame('Scissors')">Scissors</button>
-    <button onclick="playGame('Reset')">Reset</button>
-    
+    <div id="buttons">
+        <button onclick="playGame('🪨')">🪨</button>
+        <button onclick="playGame('📄')">📄</button>
+        <button onclick="playGame('✂️')">✂️</button>
+        <button onclick="playGame('Reset')">🔁</button>
+    </div>
+
     <p id="result">Choose your move!</p>
 
     <div id="score">
